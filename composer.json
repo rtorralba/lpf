@@ -1,0 +1,42 @@
+{
+    "name": "selfphp",
+    "description": "A Simple, Extensible and Light Framework for rapid PHP development",
+    "keywords": ["microframework", "rest", "router", "psr7"],
+    "homepage": "https://www.artansoft.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raül Torralba Adsuara",
+            "email": "raul.torralba@gmail.com",
+            "homepage": "https://www.artansoft.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "league/plates": "^3.1",
+        "catfan/Medoo": "^1.5",
+        "zendframework/zend-diactoros": "^1.7",
+        "nikic/fast-route": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.8 < 6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "process-timeout" : 0
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public",
+        "test": "phpunit"
+    }
+}

@@ -1,0 +1,29 @@
+version: '2'
+
+volumes:
+    logs:
+        driver: local
+
+services:
+    php:
+        image: rtorralba/php7-with-db-extensions
+        working_dir: /var/www
+        command: php -S 0.0.0.0:8080 -t public
+        ports:
+          - 8080:8080
+        volumes:
+          - .:/var/www
+        links:
+            - mysql
+    mysql:
+      image: mysql:latest
+      ports:
+        - "3307:3306"
+      environment:
+        - MYSQL_DATABASE=spf
+        - MYSQL_USER=dev
+        - MYSQL_PASSWORD=password
+        - MYSQL_ROOT_PASSWORD=password
+      volumes:
+          - .:/var/www
+      command: --init-file /var/www/docker-db-init.sql
