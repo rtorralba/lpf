@@ -1,6 +1,6 @@
 <?php
 
-use App\controllers\DefaultController;
+use App\Controllers\DefaultController;
 use Core\Env;
 use Core\Router;
 

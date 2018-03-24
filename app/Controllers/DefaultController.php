@@ -1,8 +1,8 @@
 <?php
 
-namespace App\controllers;
+namespace App\Controllers;
 
-use App\models\Characters;
+use App\Models\Characters;
 use Core\Controller;
 
 class DefaultController extends Controller
@@ -12,11 +12,11 @@ class DefaultController extends Controller
         echo 'SPF works!';
     }
 
-    public function wopr(string $name = 'FALKEN')
+    public function wopr($name = 'FALKEN')
     {
         $charactersModel = new Characters();
         $characters = $charactersModel->getAll();
-        echo $this->view->render('wopr', [
+        $this->render('wopr', [
             'name' => $name,
             'characters' => $characters
         ]);
