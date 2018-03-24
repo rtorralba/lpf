@@ -1,5 +1,5 @@
-#PHP Light Framework
-##A really simple and light PHP framework for a simple pages or HTTP APIs
+# PHP Light Framework
+## A really simple and light PHP framework for a simple pages or HTTP APIs
 
 ### Features
 * Light, less than 1MB
