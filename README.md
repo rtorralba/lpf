@@ -8,4 +8,12 @@
     * [PlatesPHP](http://platesphp.com/) (PHP template system)
     * [Medoo](https://medoo.in/) Lightest database library
 * PHP 7.2 ready
-* Include docker developvent configuration
+* Include docker development configuration
+
+### Instructions
+* git clone git@github.com:rtorralba/lpf.git
+* cd lpf
+* mv env.json.example env.json
+* Start development server
+    * composer start (PHP 7.2 environment in your PC)
+    * docker-compose up (Only needs docker and docker-compose)        
