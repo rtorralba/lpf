@@ -9,7 +9,7 @@ class DefaultController extends Controller
 {
     public function index()
     {
-        echo 'SPF works!';
+        echo 'LPF works!';
     }
 
     public function wopr($name = 'FALKEN')
