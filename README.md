@@ -1,4 +1,4 @@
-# PHP Light Framework
+# Light PHP Framework
 ## A really simple and light PHP framework for a simple pages or HTTP APIs
 
 ### Features
