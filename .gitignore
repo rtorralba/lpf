@@ -2,3 +2,5 @@ env.json
 .idea
 vendor
 *.swp
+e2e/cypress/videos
+e2e/cypress/screenshots
