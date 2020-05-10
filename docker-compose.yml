@@ -1,13 +1,7 @@
 version: '2'
 
-volumes:
-    logs:
-      driver: local
-    mysqldata:
-      driver: local
-
 services:
-    php:
+    app:
       image: rtorralba/php7-with-db-extensions
       working_dir: /var/www
       command: php -S 0.0.0.0:8080 -t public
@@ -16,8 +10,8 @@ services:
       volumes:
         - .:/var/www
       links:
-          - mysql
-    mysql:
+          - db
+    db:
       image: mysql
       restart: always
       ports:
@@ -30,3 +24,24 @@ services:
       volumes:
           - mysqldata:/var/lib/mysql
           - ./docker-db-init.sql:/docker-entrypoint-initdb.d/init.sql
+    e2e:
+      image: cypress
+      links:
+        - app:lpf.local
+      depends_on:
+        - app
+      environment:
+        - CYPRESS_baseUrl=http://lpf.local:8080
+        - DISPLAY=unix${DISPLAY}
+      command: tail -f /dev/null
+      volumes:
+        - ./e2e/cypress:/app/cypress
+        - ./e2e/cypress.json:/app/cypress.json
+        - /dev/shm:/dev/shm
+        - /tmp/.X11-unix:/tmp/.X11-unix
+
+volumes:
+    logs:
+      driver: local
+    mysqldata:
+      driver: local
